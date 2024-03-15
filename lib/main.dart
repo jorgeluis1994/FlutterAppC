@@ -1,47 +1,22 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter_application_1/presentation/screens/home.dart';
+import 'package:flutter_application_1/presentation/screens/product.dart';
 
 void main() {
-  runApp(const Myapp());
+  runApp(const MyApp());
 }
 
-class Myapp extends StatelessWidget {
-  const Myapp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
-  Widget build(Object context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(
-            appBar: AppBar(
-                title: const Text(
-                  'Home',
-                  style: TextStyle(color: Colors.white),
-                ),
-                backgroundColor: Colors.greenAccent[400]),
-            drawer: Drawer(
-              child: ListView(
-                children: [
-                  const DrawerHeader(
-                    decoration: BoxDecoration(
-                      color: Colors.greenAccent,
-                    ),
-                    child: Text(
-                      'Contabilidad ',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                  ListTile(
-                    title: const Text('Produstos'),
-                    onTap: () {},
-                  ),
-                  ListTile(
-                    title: const Text('Servicios'),
-                    onTap: () {},
-                  ),
-                ],
-              ),
-            )));
+  Widget build(BuildContext context) {
+    return  MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: const MyHomePage(),
+       routes: {
+        '/second': (context) => SecondScreen(), // Ruta para la segunda pantalla
+      },
+    );
   }
 }
